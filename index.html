@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Heri Sanjaya - Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
+    :root {
+      --bg-light: #ffffff;
+      --text-light: #333;
+      --card-light: #f8f9fa;
+
+      --bg-dark: #1a1a1a;
+      --text-dark: #f0f0f0;
+      --card-dark: #2a2a2a;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(-45deg, #f4f6f9, #d9e2ec, #b5c6e0, #d9e2ec);
+      background-size: 400% 400%;
+      animation: backgroundMove 12s ease infinite;
+      color: var(--text-light);
+      padding: 1rem;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+    @keyframes backgroundMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    body.dark {
+      background: linear-gradient(-45deg, #1a1a1a, #232323, #2a2a2a, #1a1a1a);
+      color: var(--text-dark);
+    }
+
+    .container {
+      max-width: 480px;
+      margin: auto;
+      background: var(--bg-light);
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      overflow: hidden;
+      animation: fadeInUp 1s ease forwards;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    body.dark .container {
+      background: var(--card-dark);
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .header {
+      background: linear-gradient(135deg, #4b6cb7, #182848);
+      color: #fff;
+      padding: 2rem 1rem 4rem;
+      text-align: center;
+      position: relative;
+    }
+    .profile-img {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      border: 5px solid #fff;
+      object-fit: cover;
+      position: absolute;
+      bottom: -65px;
+      left: 50%;
+      transform: translateX(-50%);
+      box-shadow: 0 0 15px rgba(0,0,0,0.3), 0 0 20px #4b6cb7;
+      animation: glow 2s infinite alternate;
+      transition: transform 0.3s ease;
+    }
+    @keyframes glow {
+      from {
+        box-shadow: 0 0 15px rgba(0,0,0,0.3), 0 0 10px #4b6cb7;
+      }
+      to {
+        box-shadow: 0 0 30px rgba(0,0,0,0.5), 0 0 25px #4b6cb7;
+      }
+    }
+
+    .profile-img:hover {
+      transform: translateX(-50%) scale(1.05);
+    }
+
+    .content {
+      padding: 5rem 2rem 2rem;
+      text-align: center;
+    }
+    .content h2 {
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+      color: #182848;
+    }
+
+    .skills {
+      list-style: none;
+      padding: 0;
+    }
+    .skills li {
+      background-color: var(--card-light);
+      margin-bottom: 10px;
+      padding: 12px 20px;
+      border-left: 4px solid #4b6cb7;
+      border-radius: 10px;
+      text-align: left;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    body.dark .skills li {
+      background-color: var(--card-dark);
+    }
+
+    .skills li.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .insta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(45deg, #feda75, #fa7e1e, #d62976, #962fbf, #4f5bd5);
+      border: none;
+      color: #fff;
+      padding: 12px 24px;
+      margin-top: 2rem;
+      border-radius: 30px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform 0.3s ease;
+    }
+    .insta-btn:hover {
+      transform: scale(1.08);
+    }
+
+    .insta-icon {
+      width: 20px;
+      height: 20px;
+    }
+
+    .toggle-theme {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: #fff;
+      border: none;
+      border-radius: 20px;
+      padding: 6px 12px;
+      font-size: 0.8rem;
+      cursor: pointer;
+      z-index: 1000;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.8rem;
+      color: #888;
+      padding: 1.5rem 1rem;
+    }
+  
+    .content h2 {
+      color: var(--text-light);
+      transition: color 0.3s ease;
+    }
+    body.dark .content h2 {
+      color: var(--text-dark);
+    }
+</style>
+</head>
+<body>
+<button class="toggle-theme" onclick="toggleTheme()">Dark Mode</button>
+<div class="container">
+<div class="header">
+<h1>Heri Sanjaya</h1>
+<p>IT Specialist</p>
+<img alt="Heri Sanjaya" class="profile-img" src="profile.jpg"/>
+</div>
+<div class="content">
+<h2>Tentang Saya</h2>
+<p style="margin-bottom: 2rem; line-height: 1.6;">
+    Saya Heri Sanjaya, seorang IT Specialist dengan ketertarikan tinggi pada pengembangan perangkat lunak, desain antarmuka, dan keamanan jaringan. 
+    Saya memiliki pengalaman di berbagai bahasa pemrograman dan selalu antusias untuk mempelajari teknologi baru.
+  </p>
+<h2>Keahlian</h2>
+<ul class="skills">
+<li>HTML, CSS, JavaScript</li>
+<li>Python, Java, C++</li>
+<li>Android Development (Java &amp; Kotlin)</li>
+<li>Database Management (MySQL, PostgreSQL)</li>
+<li>UI/UX Design Basics</li>
+<li>Network &amp; Security Fundamentals</li>
+</ul>
+<a class="insta-btn" href="https://www.instagram.com/zayzen.23?igsh=eTVnNnY1bjV1YzF4" target="_blank">
+<img alt="Instagram" class="insta-icon" src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"/>
+        Follow Instagram
+      </a>
+<div class="certificates"><h2>Sertifikat</h2><img alt="Sertifikat" src="sertifikat.jpg" style="width:100%;max-width:400px;border-radius:10px;margin-top:1rem;box-shadow:0 4px 20px rgba(0,0,0,0.2);"/></div><div style="margin-top: 2rem;"><div style="margin-top: 2rem;">
+ <iframe width="100%" height="100" 
+  src="https://www.youtube.com/embed/mdb8L87DU58?autoplay=1&loop=1&playlist=mdb8L87DU58&modestbranding=1&rel=0&showinfo=0&controls=1"
+  title="YouTube video player"
+  frameborder="0"
+  allow="autoplay; encrypted-media"
+  allowfullscreen>
+</iframe>
+</div></div></div>
+<footer>
+      © 2025 Heri Sanjaya. All rights reserved.
+    </footer>
+</div>
+<script>
+    const skillItems = document.querySelectorAll('.skills li');
+    skillItems.forEach((item, i) => {
+      setTimeout(() => {
+        item.classList.add('visible');
+      }, i * 300);
+    });
+
+    function toggleTheme() {
+      document.body.classList.toggle('dark');
+    }
+  </script>
+</body>
+</html>
